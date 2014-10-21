@@ -12,6 +12,7 @@ public class FlywayRunner {
 		Flyway flyway = new Flyway();
 		flyway.setDataSource(dataSource);
 		flyway.setLocations();
+		flyway.setResolvers(new DynamicSqlMigrationResolver(dataSource));
 		
 		flyway.migrate();
 		
